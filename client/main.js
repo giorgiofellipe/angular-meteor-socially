@@ -16,4 +16,21 @@ angular.module('socially', [
       return Parties.find({});
     }
   });
-}]);
+}])
+
+//AS COMPONENT
+.component('partiesList', {
+  templateUrl: 'client/partiesList.html',
+  controllerAs: 'partiesList',
+  controller($scope, $reactive) {
+    'ngInject';
+
+    $reactive(this).attach($scope);
+
+    this.helpers({
+      parties() {
+        return Parties.find({});
+      }
+    });
+  }
+});
