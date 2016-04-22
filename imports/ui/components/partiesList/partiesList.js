@@ -12,6 +12,8 @@ class PartiesList {
     'ngInject';
 
     $reactive(this).attach($scope);
+    
+    this.subscribe('parties');
 
     this.helpers({
       parties() {
@@ -38,7 +40,7 @@ export default angular.module(name, [
 
 function config($stateProvider) {
  'ngInject';
- 
+
  $stateProvider
    .state('parties', {
      url: '/parties',
