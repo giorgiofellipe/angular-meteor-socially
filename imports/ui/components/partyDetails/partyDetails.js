@@ -8,7 +8,7 @@ import { Parties } from '../../../api/parties/index';
 import { name as PartyUninvited } from '../partyUninvited/partyUninvited';
 
 class PartyDetails {
-  constructor($stateParams, $scope, $reactive, $state) {
+  constructor($stateParams, $scope, $reactive) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -41,9 +41,10 @@ class PartyDetails {
       }
     }, (error) => {
       if (error) {
+        console.log(error);
         alert('Oops, unable to update the party...');
       } else {
-        $state.go('parties');
+        alert('OK');
       }
     });
   }
