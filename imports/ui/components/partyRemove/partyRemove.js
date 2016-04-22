@@ -1,33 +1,27 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import './partyAdd.html';
+import './partyRemove.html';
 import { Parties } from '../../../api/parties';
 
-class PartyAdd {
-  constructor() {
-    this.party = {};
-  }
-
-  submit() {
-    if (this.party.name) {
-      Parties.insert(this.party);
-      this.reset();
+class PartyRemove {
+  remove() {
+    if (this.party) {
+      Parties.remove(this.party._id);
     }
-  }
-
-  reset() {
-    this.party = {};
   }
 }
 
-const name = 'partyAdd';
+const name = 'partyRemove';
 
 // create a module
 export default angular.module(name, [
   angularMeteor
 ]).component(name, {
   templateUrl: `imports/ui/components/${name}/${name}.html`,
+  bindings: {
+    party: '<'
+  },
   controllerAs: name,
-  controller: PartyAdd
+  controller: PartyRemove
 });
