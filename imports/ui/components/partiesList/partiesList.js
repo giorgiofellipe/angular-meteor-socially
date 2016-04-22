@@ -9,6 +9,7 @@ import { Parties } from '../../../api/parties';
 import { name as PartyAdd } from '../partyAdd/partyAdd';
 import { name as PartyRemove } from '../partyRemove/partyRemove';
 import { name as PartiesSort } from '../partiesSort/partiesSort';
+import { name as PartyCreator } from '../partyCreator/partyCreator';
 
 class PartiesList {
   constructor($scope, $reactive) {
@@ -61,7 +62,8 @@ export default angular.module(name, [
   utilsPagination,
   PartyAdd,
   PartyRemove,
-  PartiesSort
+  PartiesSort,
+  PartyCreator
 ]).component(name, {
   templateUrl: `imports/ui/components/${name}/${name}.html`,
   controllerAs: name,
